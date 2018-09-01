@@ -6,7 +6,6 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipesComponent } from './recipes.component';
-import {AuthService} from '../auth/auth.service';
 
 const recipesRoutes: Routes = [
   { path: '', component: RecipesComponent, children: [
@@ -21,7 +20,9 @@ const recipesRoutes: Routes = [
   imports: [
     RouterModule.forChild(recipesRoutes)
   ],
-  providers: [AuthGuard],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    AuthGuard
+  ]
 })
 export class RecipesRoutingModule {}

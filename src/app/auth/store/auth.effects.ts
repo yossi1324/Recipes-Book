@@ -5,6 +5,10 @@ import * as AuthActions from './auth.actions';
 import {fromPromise} from 'rxjs-compat/observable/fromPromise';
 import * as firebase from 'firebase';
 import {Router} from '@angular/router';
+import 'rxjs-compat/add/operator/do';
+import 'rxjs-compat/add/operator/switchMap';
+import 'rxjs-compat/add/operator/mergeMap';
+import 'rxjs-compat/add/operator/map';
 
 @Injectable()
 export class AuthEffects {
@@ -63,6 +67,6 @@ export class AuthEffects {
     .ofType(AuthActions.LOGOUT)
     .do(() => {
       this.router.navigate(['/']);
-    })
+    });
   constructor(private actions$: Actions, private router: Router) {}
 }
